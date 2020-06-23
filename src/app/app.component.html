@@ -1,30 +1,43 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" routerLink="/"><fa-icon [icon]="faHome"></fa-icon> HAMILTON NAVY CADETS</a>
-    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-    &#9776;
-  </button>
-  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/about" (click)="isMenuCollapsed = true"><fa-icon [icon]="faInfo"></fa-icon> About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" (click)="isMenuCollapsed = true"><fa-icon [icon]="faEnvelope"></fa-icon> Contact Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/events" (click)="isMenuCollapsed = true"><fa-icon [icon]="faCalendar"></fa-icon> Events</a>
-      </li>
-    </ul>
-    <div class="my-2 my-lg-0 auth">
-      <div *ngIf="authService.isLoggedIn() === true">
-        <fa-icon [icon]="faUser" class="mr-1"></fa-icon>{{authService.msalService.getAccount().name.toUpperCase()}}<fa-icon [icon]="faGripLine" class="mr-3 ml-3"></fa-icon>
-        <a class="auth my-2 my-sm-0" type="button" (click)="isMenuCollapsed = true" (click)="authService.msLogout()"><fa-icon [icon]="faMicrosoft"></fa-icon> LOGOUT</a>
+      <a class="navbar-brand" routerLink="/">
+        <fa-icon [icon]="faHome"></fa-icon> HAMILTON NAVY CADETS
+      </a>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+      </button>
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" (click)="isMenuCollapsed = true">
+              <fa-icon [icon]="faInfo"></fa-icon> About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" (click)="isMenuCollapsed = true">
+              <fa-icon [icon]="faEnvelope"></fa-icon> Contact Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/events" (click)="isMenuCollapsed = true">
+              <fa-icon [icon]="faCalendar"></fa-icon> Events
+            </a>
+          </li>
+        </ul>
+        <div class="my-2 my-lg-0 auth">
+          <div *ngIf="authService.isLoggedIn() === true">
+            <fa-icon [icon]="faUser" class="mr-1"></fa-icon>{{authService.msalService.getAccount().name.toUpperCase()}}
+            <fa-icon [icon]="faGripLine" class="mr-3 ml-3"></fa-icon>
+            <a class="auth my-2 my-sm-0" type="button" (click)="isMenuCollapsed = true"
+              (click)="authService.msLogout()"><img src="assets/icons/Microsoft_icon.png" height="20px" width="20px">
+              LOGOUT</a>
+          </div>
+          <a class="auth my-2 my-sm-0" type="button" *ngIf="authService.isLoggedIn() === false"
+            (click)="isMenuCollapsed = true" (click)="authService.msLogin()"><img src="assets/icons/Microsoft_icon.png"
+              height="20px" width="20px"> LOGIN</a>
+        </div>
       </div>
-      <a class="auth my-2 my-sm-0" type="button" *ngIf="authService.isLoggedIn() === false" (click)="isMenuCollapsed = true" (click)="authService.msLogin()"><fa-icon [icon]="faMicrosoft"></fa-icon> LOGIN</a>
-    </div>
-  </div>
     </div>
   </nav>
 </header>

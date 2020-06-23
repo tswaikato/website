@@ -19,12 +19,11 @@ export class AppComponent implements OnInit {
   faHome = faHome;
   faUser = faUser;
   faGripLine = faGripLinesVertical;
-  faMicrosoft = faMicrosoft;
 
 
-  isMenuCollapsed:boolean = true;
-  account:Account;
-  constructor(public authService: AuthService, private http:HttpClient, private broadcastService: BroadcastService){}
+  isMenuCollapsed: boolean = true;
+  account: Account;
+  constructor(public authService: AuthService, private http: HttpClient, private broadcastService: BroadcastService) { }
   ngOnInit(): void {
     this.account = this.authService.msalService.getAccount();
   }
