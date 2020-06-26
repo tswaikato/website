@@ -10,11 +10,6 @@
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/about" (click)="isMenuCollapsed = true">
-              <fa-icon [icon]="faInfo"></fa-icon> About
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" routerLink="/contact" (click)="isMenuCollapsed = true">
               <fa-icon [icon]="faEnvelope"></fa-icon> Contact Us
             </a>
@@ -29,11 +24,11 @@
           <div *ngIf="authService.isLoggedIn() === true">
             <fa-icon [icon]="faUser" class="mr-1"></fa-icon>{{authService.msalService.getAccount().name.toUpperCase()}}
             <fa-icon [icon]="faGripLine" class="mr-3 ml-3"></fa-icon>
-            <a class="auth my-2 my-sm-0" type="button" (click)="isMenuCollapsed = true"
+            <a class="btn auth my-2 my-sm-0" type="button" (click)="isMenuCollapsed = true"
               (click)="authService.msLogout()"><img src="assets/icons/Microsoft_icon.png" height="20px" width="20px">
               LOGOUT</a>
           </div>
-          <a class="auth my-2 my-sm-0" type="button" *ngIf="authService.isLoggedIn() === false"
+          <a class="btn auth my-2 my-sm-0" type="button" *ngIf="authService.isLoggedIn() === false"
             (click)="isMenuCollapsed = true" (click)="authService.msLogin()"><img src="assets/icons/Microsoft_icon.png"
               height="20px" width="20px">Login</a>
         </div>
@@ -52,7 +47,6 @@
     <div class=" row ml-3">
       <div class="col-sm">
         <a class="font-weight-lighter small" routerLink="/">Home</a> |
-        <a class="font-weight-lighter small" routerLink="/about">About</a> |
         <a class="font-weight-lighter small" routerLink="/contact">Contact</a> |
         <a class="font-weight-lighter small" routerLink="/events">Events</a>
       </div>
