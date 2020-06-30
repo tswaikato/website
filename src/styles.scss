@@ -3,9 +3,58 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-html, body{
+$background-light: #FBFBFB;
+$background-dark: #817173;
+$background-alt: #9E855D;
+
+html,
+body {
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 10px;
+  background-color: $background-light;
 }
-p{
-  font-family: 'Playfair Display', serif;
+
+p {
+  // font-family: 'Playfair Display', serif;
+  margin-bottom: 0;
+}
+
+.background-dark {
+  background-color: $background-dark;
+}
+
+.background-light {
+  background-color: $background-light;
+}
+
+.background-alt {
+  background-color: $background-alt;
+}
+
+.text-light {
+  color: #9A99A6;
+}
+
+.text-dark {
+  color: #2C425C;
+}
+
+.text-alt {
+  color: #9E855D;
+}
+
+.text-header {
+  font-size: 10rem;
+}
+
+.text-large {
+  font-size: 3rem;
+}
+
+.text-medium {
+  font-size: 2rem;
+}
+
+.text-normal {
+  font-size: 1.5rem;
 }

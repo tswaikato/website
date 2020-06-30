@@ -1,60 +1,32 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class=" text-alt">
     <div class="container">
-      <a class="navbar-brand" routerLink="/">
-        <fa-icon [icon]="faHome"></fa-icon> WAIKATO NAVY CADETS
-      </a>
-      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-        &#9776;
+      <h1 class="text-header">Waikato Navy Cadets</h1>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark background-alt text-normal">
+    <div class="container">
+      <a class="navbar-brand text-medium" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about" (click)="isMenuCollapsed = true">
-              <fa-icon [icon]="faInfo"></fa-icon>About
-            </a>
+          <li class="nav-item active">
+            <a class="nav-link" href="contact">Contact Us<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" (click)="isMenuCollapsed = true">
-              <fa-icon [icon]="faEnvelope"></fa-icon> Contact Us
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/events" (click)="isMenuCollapsed = true">
-              <fa-icon [icon]="faCalendar"></fa-icon> Events
-            </a>
+          <li class="nav-item active">
+            <a class="nav-link" href="events">Events<span class="sr-only">(current)</span></a>
           </li>
         </ul>
-        <div class="my-2 my-lg-0 auth">
-          <div *ngIf="authService.isLoggedIn() === true">
-            <fa-icon [icon]="faUser" class="mr-1"></fa-icon>{{authService.msalService.getAccount().name.toUpperCase()}}
-            <fa-icon [icon]="faGripLine" class="mr-3 ml-3"></fa-icon>
-            <a class="btn auth my-2 my-sm-0" type="button" (click)="isMenuCollapsed = true"
-              (click)="authService.msLogout()"><img src="assets/icons/Microsoft_icon.png" height="20px" width="20px">
-              LOGOUT</a>
-          </div>
-          <a class="btn auth my-2 my-sm-0" type="button" *ngIf="authService.isLoggedIn() === false"
-            (click)="isMenuCollapsed = true" (click)="authService.msLogin()"><img src="assets/icons/Microsoft_icon.png"
-              height="20px" width="20px">Login</a>
-        </div>
       </div>
     </div>
   </nav>
 </header>
 
-<div>
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 
-<footer class="d-block p-2 bg-dark text-white mt-4">
-  <div class="container">
-    <h3 class="font-weight-lighter small">Waikato Navy Cadets</h3>
-    <div class=" row ml-3">
-      <div class="col-sm">
-        <a class="font-weight-lighter small" routerLink="/">Home</a> |
-        <a class="font-weight-lighter small" routerLink="/contact">Contact</a> |
-        <a class="font-weight-lighter small" routerLink="/events">Events</a>
-      </div>
-    </div>
-  </div>
+<footer>
 </footer>
