@@ -19,6 +19,14 @@ p {
   margin-bottom: 0;
 }
 
+a {
+  color: $background-alt;
+
+  &:hover {
+    color: #6E5D41;
+  }
+}
+
 .background-dark {
   background-color: $background-dark;
 }
@@ -40,7 +48,7 @@ p {
 }
 
 .text-alt {
-  color: #9E855D;
+  color: $background-alt;
 }
 
 .text-header {
@@ -50,6 +58,7 @@ p {
 
 .text-large {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 .text-medium {
