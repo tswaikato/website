@@ -5,13 +5,15 @@ import { AuthService } from './shared/core/services/auth.service';
 import { faCalendar, faEnvelope, faInfo, faHome, faUser, faGripLinesVertical, faInfoCircle, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import { faMicrosoft } from '@fortawesome/free-brands-svg-icons'
 import { Account } from 'msal';
+import { Subscription } from 'rxjs';
+import { UserModel } from './shared/core/models/user.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   faInfo = faInfoCircle;
   faEnvelope = faEnvelope;
@@ -20,11 +22,16 @@ export class AppComponent implements OnInit {
   faUser = faUser;
   faGripLine = faGripLinesVertical;
 
+  public isMenuCollapsed: boolean = true;
 
-  isMenuCollapsed: boolean = true;
-  account: Account;
-  constructor(public authService: AuthService, private http: HttpClient, private broadcastService: BroadcastService) { }
+  private userSubscription: Subscription;
+
+  user: UserModel;
+  constructor(public authService: AuthService) { }
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
+  }
   ngOnInit(): void {
-    this.account = this.authService.msalService.getAccount();
+    this.userSubscription = this.authService.user$.subscribe(user => this.user = user);
   }
 }
