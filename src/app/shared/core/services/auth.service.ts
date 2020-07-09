@@ -15,9 +15,6 @@ export class AuthService {
   public user: UserModel
 
   constructor(public msalService: MsalService, private broadcastService: BroadcastService) {
-    if (msalService.getAccount() !== null) {
-      msalService.acquireTokenSilent(idTokenScope).catch(() => msalService.logout());
-    }
     this.user$.subscribe(user => this.user = user);
     if (msalService.getAccount() !== null) {
       var account = msalService.getAccount();
