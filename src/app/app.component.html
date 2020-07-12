@@ -25,10 +25,10 @@
             <a class="nav-link" href="https://www.cadetnet.org.nz/" (click)="isMenuCollapsed = true">Cadet Net</a>
           </li>
         </ul>
-        <div class="form-inline my-2 my-lg-0" *ngIf="authService.isLoggedIn()">
+        <div class="form-inline my-2 my-lg-0" *ngIf="authService.isLoggedIn() else login">
           <label class="ml-1 mr-1">{{user.name}}</label>
           <label class="ml-1 mr-1 bold">|</label>
-          <a><label class="ml-1 mr-1 light">Logout</label></a>
+          <a (click)="authService.msLogout()"><label class="ml-1 mr-1 light">Logout</label></a>
         </div>
       </div>
     </div>
@@ -39,3 +39,7 @@
 
 <footer>
 </footer>
+
+<ng-template #login>
+  <a (click)="authService.msLogin()"><label class="ml-1 mr-1 light">Login</label></a>
+</ng-template>
