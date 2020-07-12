@@ -16,16 +16,19 @@
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us<span
-                class="sr-only">(current)</span></a>
+            <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="events" (click)="isMenuCollapsed = true">Events<span
-                class="sr-only">(current)</span></a>
+            <a class="nav-link" href="events" (click)="isMenuCollapsed = true">Events</a>
+          </li>
+          <li class="nav-item active" *ngIf="authService.isLoggedIn()">
+            <a class="nav-link" href="https://www.cadetnet.org.nz/" (click)="isMenuCollapsed = true">Cadet Net</a>
           </li>
         </ul>
         <div class="form-inline my-2 my-lg-0" *ngIf="authService.isLoggedIn()">
-          <label>{{user.name}}</label>
+          <label class="ml-1 mr-1">{{user.name}}</label>
+          <label class="ml-1 mr-1 bold">|</label>
+          <a><label class="ml-1 mr-1 light">Logout</label></a>
         </div>
       </div>
     </div>
