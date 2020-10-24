@@ -15,6 +15,7 @@ import { EventsComponent } from './events/events.component';
 import { ErrorComponent } from './error/error.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { JoinComponent } from './join/join.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AboutComponent,
     ContactComponent,
     EventsComponent,
-    ErrorComponent
+    ErrorComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,
