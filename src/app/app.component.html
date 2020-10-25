@@ -1,7 +1,14 @@
 <header>
   <div class=" text-alt">
     <div class="container">
-      <h1 class="text-header"><img src="assets/icons/Waikato%20Crest.png" width="100" class="m-2">Waikato Navy Cadets</h1>
+      <div class="row">
+        <div class="col-md-auto">
+        <img src="assets/icons/Waikato%20Crest.png" width="100" class="m-2">
+        </div>
+        <div class="col">
+        <h1 class="text-header">Waikato Navy Cadets</h1>
+        </div>
+      </div>
     </div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark background-alt text-medium text-light">
@@ -16,13 +23,13 @@
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us</a>
+            <a class="nav-link" href="join" (click)="isMenuCollapsed = true">Join</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="events" (click)="isMenuCollapsed = true">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="join" (click)="isMenuCollapsed = true">Join</a>
+            <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us</a>
           </li>
           <li class="nav-item" *ngIf="authService.isLoggedIn()">
             <a class="nav-link" href="https://www.cadetnet.org.nz/" (click)="isMenuCollapsed = true">Cadet Net</a>
