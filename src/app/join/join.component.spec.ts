@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { JoinComponent } from './join.component';
+import {JoinComponent} from './join.component';
 
 describe('JoinComponent', () => {
   let component: JoinComponent;

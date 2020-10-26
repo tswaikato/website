@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="text-subheader" align="center">Cadet Shop</h2>
+  <button class="snipcart-checkout btn btn-lg btn-success">Click here to checkout</button>
+  <div *ngFor="let product of productList" align="center">
+    <app-shop-item [product]="product"></app-shop-item>
+  </div>
+</div>
+
+
