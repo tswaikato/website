@@ -1,12 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MsalService, BroadcastService } from '@azure/msal-angular';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from './shared/core/services/auth.service';
-import { faCalendar, faEnvelope, faInfo, faHome, faUser, faGripLinesVertical, faInfoCircle, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
-import { faMicrosoft } from '@fortawesome/free-brands-svg-icons'
-import { Account } from 'msal';
-import { Subscription } from 'rxjs';
-import { UserModel } from './shared/core/models/user.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AuthService} from './shared/core/services/auth.service';
+import {faCalendarAlt, faEnvelope, faGripLinesVertical, faHome, faInfoCircle, faUser} from '@fortawesome/free-solid-svg-icons';
+import {Subscription} from 'rxjs';
+import {UserModel} from './shared/core/models/user.model';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -22,12 +19,19 @@ export class AppComponent implements OnInit, OnDestroy {
   faUser = faUser;
   faGripLine = faGripLinesVertical;
 
-  public isMenuCollapsed: boolean = true;
+  showNavigationArrows = false;
+  showNavigationIndicators = false;
+  images = [1055, 194, 368].map(() => '../assets/images/bannerImage.png');
+
+  public isMenuCollapsed = true;
 
   private userSubscription: Subscription;
 
   user: UserModel;
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, config: NgbCarouselConfig) {
+    config.showNavigationArrows = true;
+    config.showNavigationIndicators = true;
+  }
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
   }

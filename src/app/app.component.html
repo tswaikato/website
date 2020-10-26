@@ -1,15 +1,18 @@
 <header>
-  <div class=" text-alt">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-auto">
-        <img src="assets/icons/Waikato%20Crest.png" width="100" class="m-2">
-        </div>
-        <div class="col">
-        <h1 class="text-header">Waikato Navy Cadets</h1>
-        </div>
+  <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    <ng-template ngbSlide *ngFor="let image of images">
+      <div class="picsum-img-wrapper">
+        <img [src]="image" alt="Random slide" style=" max-height: 750px; min-width: 100%">
       </div>
-    </div>
+      <div class="carousel-caption text-alt background-lightAlpha rounded">
+        <img src="assets/icons/Waikato%20Crest.png" width="100">
+        <h1 class="text-header">Waikato Navy Cadets</h1>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <div class=" text-alt background-banner">
+
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark background-alt text-medium text-light">
     <div class="container">
@@ -30,6 +33,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shop" (click)="isMenuCollapsed = true">Shop</a>
           </li>
           <li class="nav-item" *ngIf="authService.isLoggedIn()">
             <a class="nav-link" href="https://www.cadetnet.org.nz/" (click)="isMenuCollapsed = true">Cadet Net</a>
