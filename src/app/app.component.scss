@@ -1,6 +1,13 @@
-.auth{
+@import "~src/assets/stylesheets/colors";
+
+.auth {
   color: white;
-  a:hover{
+
+  a:hover {
     color: gray;
   }
+}
+
+.a-light-color {
+  color: $background-light;
 }

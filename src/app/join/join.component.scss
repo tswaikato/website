@@ -1,0 +1,10 @@
+@import '~src/assets/stylesheets/colors.scss';
+
+#surveyDiv {
+  min-width: 350px;
+  min-height: 480px;
+}
+
+#link-alt-color {
+  color: $background-light;
+}

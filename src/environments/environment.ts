@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  msalAuthConfig:{
+  msalAuthConfig: {
     auth: {
       clientId: '5efe6947-d960-4808-84f9-6454a37be0b6', // This is your client ID
       authority: 'https://login.microsoftonline.com/89e1e916-0dc8-45c8-8e19-ca935a757a54', // This is your tenant info
     }
   },
-  msalSettingsConfig:{
+  msalSettingsConfig: {
     consentScopes: [
       'user.read',
       'openid',

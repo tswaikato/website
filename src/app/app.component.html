@@ -1,31 +1,46 @@
 <header>
-  <div class=" text-alt">
-    <div class="container">
-      <h1 class="text-header">Waikato Navy Cadets</h1>
-    </div>
+  <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    <ng-template *ngFor="let image of images" ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="image" alt="Random slide"
+             style="width: 100%; height: 750px; object-fit: cover; object-position: 40%">
+      </div>
+      <div class="carousel-caption text-alt background-lightAlpha rounded">
+        <img src="assets/icons/Waikato%20Crest.png" width="100">
+        <h1 class="text-header">Waikato Navy Cadets</h1>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <div class=" text-alt background-banner">
+
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark background-alt text-medium text-light">
     <div class="container">
       <a class="navbar-brand text-medium" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-        (click)="isMenuCollapsed = !isMenuCollapsed">
+      <button (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation"
+              class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse"
+              type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="contact" (click)="isMenuCollapsed = true">Contact Us</a>
+          <li class="nav-item">
+            <a (click)="isMenuCollapsed = true" class="nav-link" href="join">Join</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="events" (click)="isMenuCollapsed = true">Events</a>
+          <li class="nav-item">
+            <a (click)="isMenuCollapsed = true" class="nav-link" href="events">Events</a>
           </li>
-          <li class="nav-item active" *ngIf="authService.isLoggedIn()">
-            <a class="nav-link" href="https://www.cadetnet.org.nz/" (click)="isMenuCollapsed = true">Cadet Net</a>
+          <li class="nav-item">
+            <a (click)="isMenuCollapsed = true" class="nav-link" href="contact">Contact Us</a>
+          </li>
+          <li *ngIf="authService.isLoggedIn()" class="nav-item">
+            <a (click)="isMenuCollapsed = true" class="nav-link" href="https://www.cadetnet.org.nz/">Cadet Net</a>
           </li>
         </ul>
-        <div class="form-inline my-2 my-lg-0" *ngIf="authService.isLoggedIn() else login">
+        <div *ngIf="authService.isLoggedIn() else login" class="form-inline my-2 my-lg-0">
           <label class="ml-1 mr-1">{{user.name}}</label>
           <label class="ml-1 mr-1 bold">|</label>
           <a (click)="authService.msLogout()"><label class="ml-1 mr-1 light">Logout</label></a>
@@ -35,9 +50,18 @@
   </nav>
 </header>
 
-<router-outlet></router-outlet>
+<div class="container p-5 text-dark text-medium">
+  <router-outlet></router-outlet>
+</div>
 
-<footer>
+<footer class="footer background-alt p-5" style="min-height: 50px">
+  <div class="container">
+    <i class="text-normal">
+      <a class="a-light-color"
+         href="https://www.cadetnet.org.nz/privacy-policy-for-cadetnet/#:~:text=New%20Zealand%20Cadet%20Forces'%20Privacy%20Statement&text=We%20can%20identify%20you.&text=We%20can%20manage%20your%20progression,are%20ongoing%2C%20disciplinary%20or%20otherwise.&text=We%20can%20award%20any%20credits%20you%20earn%20through%20NZCF.&text=We%20can%20contact%20you%20and%20return%20you%20home%20in%20an%20emergency.">Please
+        visit this page for our privacy statement</a>
+    </i>
+  </div>
 </footer>
 
 <ng-template #login>
