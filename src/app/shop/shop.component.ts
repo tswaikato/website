@@ -11,7 +11,8 @@ export class ShopComponent implements OnInit {
 
   public productList: Product[] = [theNightSky];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

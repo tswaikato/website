@@ -24,17 +24,18 @@ export class AppComponent implements OnInit, OnDestroy {
   images = [1055, 194, 368].map(() => '../assets/images/bannerImage.png');
 
   public isMenuCollapsed = true;
-
+  user: UserModel;
   private userSubscription: Subscription;
 
-  user: UserModel;
   constructor(public authService: AuthService, config: NgbCarouselConfig) {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
+
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
   }
+
   ngOnInit(): void {
     this.userSubscription = this.authService.user$.subscribe(user => this.user = user);
   }

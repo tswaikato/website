@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {run} from 'tslint/lib/runner';
 
 @Component({
   selector: 'app-join',
@@ -7,7 +8,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class JoinComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
