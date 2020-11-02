@@ -18,7 +18,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark background-alt text-medium text-light">
     <div class="container">
       <a class="navbar-brand text-medium" href="#">Home</a>
-      <button (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+      <button (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation"
               class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse"
               type="button">
         <span class="navbar-toggler-icon"></span>
@@ -34,9 +35,6 @@
           </li>
           <li class="nav-item">
             <a (click)="isMenuCollapsed = true" class="nav-link" href="contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a (click)="isMenuCollapsed = true" class="nav-link" href="shop">Shop</a>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
             <a (click)="isMenuCollapsed = true" class="nav-link" href="https://www.cadetnet.org.nz/">Cadet Net</a>
@@ -57,10 +55,12 @@
 </div>
 
 <footer class="footer background-alt p-5" style="min-height: 50px">
-  <div class="container" >
-  <i class="text-normal">
-    <a class="a-light-color" href="https://www.cadetnet.org.nz/privacy-policy-for-cadetnet/#:~:text=New%20Zealand%20Cadet%20Forces'%20Privacy%20Statement&text=We%20can%20identify%20you.&text=We%20can%20manage%20your%20progression,are%20ongoing%2C%20disciplinary%20or%20otherwise.&text=We%20can%20award%20any%20credits%20you%20earn%20through%20NZCF.&text=We%20can%20contact%20you%20and%20return%20you%20home%20in%20an%20emergency.">Please visit this page for our privacy statement</a>
-  </i>
+  <div class="container">
+    <i class="text-normal">
+      <a class="a-light-color"
+         href="https://www.cadetnet.org.nz/privacy-policy-for-cadetnet/#:~:text=New%20Zealand%20Cadet%20Forces'%20Privacy%20Statement&text=We%20can%20identify%20you.&text=We%20can%20manage%20your%20progression,are%20ongoing%2C%20disciplinary%20or%20otherwise.&text=We%20can%20award%20any%20credits%20you%20earn%20through%20NZCF.&text=We%20can%20contact%20you%20and%20return%20you%20home%20in%20an%20emergency.">Please
+        visit this page for our privacy statement</a>
+    </i>
   </div>
 </footer>
 

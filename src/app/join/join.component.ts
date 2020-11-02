@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {run} from 'tslint/lib/runner';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-join',
