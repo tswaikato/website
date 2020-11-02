@@ -10,7 +10,8 @@ export class ShopItemComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

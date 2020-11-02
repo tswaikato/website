@@ -5,7 +5,7 @@ export interface UserModel {
 }
 
 export const defaultUser: UserModel = {
-  name: "Guest",
+  name: 'Guest',
   email: null,
   accountId: null
 };
