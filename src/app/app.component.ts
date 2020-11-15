@@ -19,10 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   faUser = faUser;
   faGripLine = faGripLinesVertical;
 
-  showNavigationArrows = false;
-  showNavigationIndicators = false;
-  images = [1055, 194, 368].map(() => '../assets/images/bannerImage.png');
-
   public isMenuCollapsed = true;
   user: UserModel;
   private userSubscription: Subscription;
