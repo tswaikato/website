@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'events', component: EventsComponent, canActivate: [MsalGuard]},
-  {path: 'join', component: JoinComponent},
+  {path: 'join', loadChildren: () => new Promise(() => window.location.href = 'https://bit.ly/tswaikatojoinus')},
+  {path: 'joinus', component: JoinComponent},
   {path: 'shop', loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)},
 
   {path: '**', component: ErrorComponent}

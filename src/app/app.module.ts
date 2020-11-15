@@ -14,6 +14,8 @@ import {ErrorComponent} from './error/error.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {JoinComponent} from './join/join.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {JoinComponent} from './join/join.component';
     NgbModule,
     HttpClientModule,
     FontAwesomeModule,
+    MatIconModule,
     MsalModule.forRoot({
         auth: {
           clientId: '5efe6947-d960-4808-84f9-6454a37be0b6', // This is your client ID
@@ -49,7 +52,9 @@ import {JoinComponent} from './join/join.component';
         ],
         extraQueryParameters: {}
       }),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NoopAnimationsModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
