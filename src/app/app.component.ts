@@ -1,4 +1,4 @@
-import {Component, isDevMode, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, isDevMode, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from './shared/core/services/auth.service';
 import {faCalendarAlt, faEnvelope, faGripLinesVertical, faHome, faInfoCircle, faUser} from '@fortawesome/free-solid-svg-icons';
 import {Subscription} from 'rxjs';
@@ -10,7 +10,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   faInfo = faInfoCircle;
   faEnvelope = faEnvelope;
@@ -18,6 +18,10 @@ export class AppComponent implements OnInit, OnDestroy {
   faHome = faHome;
   faUser = faUser;
   faGripLine = faGripLinesVertical;
+
+  @ViewChild('navElement') navElement: ElementRef;
+
+  headerHeight = window.innerHeight;
 
   public isMenuCollapsed = true;
   public joinLink = 'joinus';
@@ -32,6 +36,10 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  ngAfterViewInit(): void {
+    this.headerHeight -= parseInt(window.getComputedStyle(this.navElement.nativeElement).height, 10);
+  }
+
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
   }
@@ -39,4 +47,5 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userSubscription = this.authService.user$.subscribe(user => this.user = user);
   }
+
 }
