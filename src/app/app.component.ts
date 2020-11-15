@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, isDevMode, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from './shared/core/services/auth.service';
 import {faCalendarAlt, faEnvelope, faGripLinesVertical, faHome, faInfoCircle, faUser} from '@fortawesome/free-solid-svg-icons';
 import {Subscription} from 'rxjs';
@@ -20,12 +20,16 @@ export class AppComponent implements OnInit, OnDestroy {
   faGripLine = faGripLinesVertical;
 
   public isMenuCollapsed = true;
+  public joinLink = 'joinus';
   user: UserModel;
   private userSubscription: Subscription;
 
   constructor(public authService: AuthService, config: NgbCarouselConfig) {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
+    if (!isDevMode()){
+      this.joinLink = 'https://bit.ly/tswaikatojoinus';
+    }
   }
 
   ngOnDestroy(): void {
