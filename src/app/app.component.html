@@ -1,20 +1,12 @@
 <header>
-  <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-    <ng-template *ngFor="let image of images" ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="image" alt="Random slide"
-             style="width: 100%; height: 750px; object-fit: cover; object-position: 40%">
-      </div>
-      <div class="carousel-caption text-alt background-lightAlpha rounded">
-        <img src="assets/icons/Waikato%20Crest.png" width="100">
-        <h1 class="text-header">Waikato Navy Cadets</h1>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-
-  <div class=" text-alt background-banner">
-
+  <div class="headContainer">
+    <img class="headImage" src="assets/images/bannerImage.png">
+    <div class="centered background-lightAlpha text-alt rounded">
+      <img src="assets/icons/Waikato%20Crest.png" width="100">
+      <h1 class="text-header">Waikato Navy Cadets</h1>
+    </div>
   </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark background-alt text-medium text-light">
     <div class="container">
       <button (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="false"
